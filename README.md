@@ -4,8 +4,10 @@ some utils which might be useful in developing FrontEnd projects
 
 ## 1. getBase64FromUrl
 
-有时我们需要把图片转化为base64在页面中显示
 Sometimes pictures need to be converted to base64
+
+有时我们需要把图片转化为base64在页面中显示
+
 
 ```javascript
 function getBase64FromUrl (imageUrl) {
@@ -26,7 +28,7 @@ function getBase64FromUrl (imageUrl) {
                 // reject(new Error("无法转换图片为base64格式"))
             }
         }
-        xhr.open('GET', '/api' + imageUrl)
+        xhr.open('GET', imageUrl)
         xhr.responseType = 'blob'
         xhr.onerror = () => {
             reject(new Error("url is not valid"))
