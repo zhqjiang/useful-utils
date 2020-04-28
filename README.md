@@ -53,3 +53,31 @@ getBase64FromUrl(url)
         console.log(error)
     })
 ```
+
+## 2. addEventListener with throttle function
+
+```javascript
+import React from 'react'
+import _ from 'lodash'
+
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.throttledResize = _.throttle(this.resize, 200)
+        this.state = {}
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.throttledResize)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.throttledResize)
+    }
+
+    resize = () => {
+        // do resize effect
+    }
+}
+```
